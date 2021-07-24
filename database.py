@@ -5,7 +5,7 @@ import web_scraper
 
 #get database from mongodb
 def get_db():
-    CONNECTION_STRING = "mongodb+srv://yl4148:4148@clustertest.mhx8s.mongodb.net/customerInfo?retryWrites=true&w=majority"
+    CONNECTION_STRING = "mongodb+srv://notshowingmyid:andpassword@clustertest.mhx8s.mongodb.net/customerInfo?retryWrites=true&w=majority"
     client = MongoClient(CONNECTION_STRING)
     db = client.customerTest
     return db
