@@ -1,0 +1,10 @@
+.navbar {
+  height: 35px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  z-index: 100;
+  font-size: 25px;
+  margin-left: 15px;
+  margin-top: 12px;
+}
