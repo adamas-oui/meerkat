@@ -6,14 +6,14 @@ import '../App.css'
 function Navbar(){
   return (
     <>
-      <nav className="navbar">
-        <div className="navbar-container">
-          <Link to='/' className='navbar-logo'>
+      <nav className="navbar sticky-top navbar-light">
+          <Link to='/' className='link'>
             {/* <img src='../../images/IMG_0044.JPG' alt='logo' width='40' height= '50'/> */}
-            Meerkat
+            meerkat
           </Link>
-        
-        </div>
+          <Link to='/ourservice' className='link'>our service</Link>
+          <Link to='/about' className='link'>about</Link>
+          <Link to='/mydashboard' className='link'>my dashboard</Link>
       </nav>
       
     </>

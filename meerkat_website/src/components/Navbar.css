@@ -1,10 +1,22 @@
 .navbar {
-  height: 35px;
-  background-color: transparent;
+  height: 60px;
   border: none;
-  color: black;
   z-index: 100;
-  font-size: 25px;
+  font-size: 20px;
   margin-left: 15px;
+  margin-right: 25px;
   margin-top: 12px;
+  background-color: none;
+}
+
+.link {
+  color: #577590;
+  font-weight: bold;
+  font-family: 'Raleway', sans-serif;
+  font-variant: small-caps;
+  text-decoration: none;
+}
+.link:hover {
+  color: #96dbe2;
+  text-decoration: none;
 }
