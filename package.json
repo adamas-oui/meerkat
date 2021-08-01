@@ -1,23 +1,29 @@
 {
   "name": "meerkat",
   "version": "1.0.0",
-  "description": "",
+  "description": "connect to mongodb",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adamas-oui/meerkat.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "yilin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/adamas-oui/meerkat/issues"
   },
   "homepage": "https://github.com/adamas-oui/meerkat#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.13.5",
     "react-router-dom": "^5.2.0"
-  }
+  },
+  "devDependencies": {}
 }
