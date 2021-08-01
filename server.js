@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 //connect to mongoose 
-mongoose.connect("mongodb+srv://yl4148:yl4148new@clustertest.mhx8s.mongodb.net/updateDB")
+mongoose.connect("mongodb+srv://usernamecannotshow:passwordcannotshow@clustertest.mhx8s.mongodb.net/updateDB")
 
 //require route 
 
