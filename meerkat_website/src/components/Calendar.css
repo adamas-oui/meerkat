@@ -49,8 +49,8 @@
 .active {
   cursor: pointer;
   border-radius: 10%;
-  color: red;
-  font-weight: bold
+  color: #20ee50 ;
+  font-weight: bolder
 }
 
 .borderless td, .borderless th {

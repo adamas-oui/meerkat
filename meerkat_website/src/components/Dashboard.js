@@ -1,19 +1,30 @@
-import React, { useState } from 'react';
-import Calendar from './Calendar';
+import React, { useState, useEffect } from 'react';
+import Calendar from "./Calendar";
+import axios from "axios";
 
 function CreateDashboard() {
-  function childCallBack(value) {
-    //value pass from child
-  }
-
-  const [input, setInput] = useState({
-    phoneNum: '',
-    newRestaurant: '',
-  })
+  // //fetch data from mongodb to display on the user's dashboard
+  // const [profiles, setProfiles] = useState([{
+  //   newPhone: '',
+  //   newRestaurant: ''
+  // }])
+  // 
+  // useEffect(() => {
+  //   fetch("/mydashboard").then(res => {
+  //     if(res.ok) {
+  //       return res.json()
+  //     }
+  //   }).then(jsonRes => setProfiles(jsonRes));
+  // })
+  // 
   
+  const [input, setInput] = useState({
+    newPhone: '',
+    newRestaurant: ''
+  })
+
   function handleChange(event) {
     const {name, value} = event.target;
-    
     setInput(prevInput => {
       return {
         ...prevInput,
@@ -24,9 +35,13 @@ function CreateDashboard() {
   
   function handleClick(event) {
     event.preventDefault();
-    console.log(input)
+    const newProfile = {
+      newPhone: input.newPhone,
+      newRestaurant: input.newRestaurant
+    }
+    axios.post('http://localhost:3001/create', newProfile)
   }
-  
+
   
   return (
     
@@ -35,8 +50,14 @@ function CreateDashboard() {
       <form> 
         <div className='form-group'>
           <label className='sr-only'>My Phone Number: </label>
-          <input className='form-control-plaintext' value='123456 read from mongodb'></input>
-          <input onChange={handleChange} name="phoneNum" value={input.phoneNum} className='form-control' placeholder="Enter your new phone number"></input>
+          {/* <input className='form-control-plaintext' 
+                 value={profiles && profiles.map(profile => 
+                        <div>
+                          <h1>{profile.newPhone}</h1>
+                          <h1>{profile.newRestaurant}</h1>
+                        </div>
+          )}></input> */} 
+          <input onChange={handleChange} name="newPhone" autoComplete="off" value={input.newPhone} className='form-control' placeholder="Enter your new phone number"></input>
         </div>
         <br />
         <button onClick={handleClick} className='btn btn-success float-end'> Update my phone number</button>
@@ -44,7 +65,6 @@ function CreateDashboard() {
       
       <br />
       <h2> My Restaurants: </h2>
-      
       <h5>/upload mongodb here</h5>
       
       <div className='form-group'>
@@ -55,14 +75,7 @@ function CreateDashboard() {
       </div>
       <br />
       <br />
-      
-      <div className='form-group'>
-        
-        <Calendar />
-        <br />
-        <button onClick={handleClick} className="btn btn-success float-end">Confirm my updated dates</button>
-      </div>
-      
+      <Calendar />
     </div>
   )
 }

@@ -6,7 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
 
-    <App />
+    <div><App /> </div>
+    
 ,
   document.getElementById('root')
 );

@@ -44,7 +44,7 @@ class Calendar extends React.Component {
      strMonthValue = 28;
    }
    
-   let dates = [] // TODO: Initialize with mongodb dates
+   let dates = new Set() 
    
    this.state = {
      year: year, //e.g. 2019
@@ -61,10 +61,23 @@ class Calendar extends React.Component {
  
  onItemClick(event) {
    this.setState({ day: parseInt(event.currentTarget.dataset.id) });
-   
-   console.log(parseInt(event.currentTarget.dataset.id))
-   console.log(this.state.month)
-   console.log(this.state.year)
+   let newDate = new Date(this.state.year, this.state.month, event.currentTarget.dataset.id);
+   let dateStr = JSON.stringify(newDate);
+   console.log(parseInt(event.currentTarget.dataset.id));
+   console.log(this.state.month + 1);
+   console.log(this.state.year);
+   console.log(newDate)
+   if (!this.state.dates.has(dateStr)) {
+     this.state.dates.add(dateStr)
+   } else {
+     this.state.dates.delete(dateStr)
+   }
+   console.log(this.state.dates)
+ }
+ 
+ handleSelectedDates = () => {
+   var sendDates = this.state.dates;
+   this.props.onSelectedDates(sendDates)
  }
  
 
@@ -95,7 +108,8 @@ class Calendar extends React.Component {
                key={count}
                onClick={this.onItemClick.bind(this)}
                className={`item-block ${
-                 this.state.day === count ? "active" : "inactive"
+
+                 this.state.dates.has(JSON.stringify(new Date(this.state.year, this.state.month, count))) ? "active" : "inactive"
                }`}
                data-id={count}
              >
@@ -177,8 +191,8 @@ class Calendar extends React.Component {
  }
  render() {
    return (
-     
-     <div className="row">
+     <div>
+     <div className="row" >
        
        <div className="col-4" id="col-left">
          <div className="row" id="part-1">
@@ -209,13 +223,15 @@ class Calendar extends React.Component {
          
          <div className="row">
            <div className="col">
-             <table className="table borderless" onClick={this.onTrigger}>{this.createTable()}</table>
+             <table className="table borderless" >{this.createTable()}</table>
            </div>
          </div>
        </div>
        
      </div>
-     
+     <br />
+     <button onClick={this.handleClick} className="btn btn-success float-end">Confirm my updated dates</button>
+     </div>
    );
  }
 }
