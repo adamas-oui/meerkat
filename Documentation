@@ -1,0 +1,25 @@
+I learnt a very important lesson: I did not document this project very well - 
+in fact, not at all. I found myself completely forgot where I left before NYC trip.
+Now I am creating this file to document my work from today.
+ 
+08/14
+****** what I did ******
+successfully fixed the bugs for connecting and uploading data to MongoDB;
+I also add personal token for github after they change the policy, which 
+actually creates a problem for me [see what i am doing next session]
+****** What I wanted to do but failed ******
+render data from MongoDB to the frontend. I found that I have to create another 
+page in order to use the method of creating another router, which is not what 
+I want for the dashboard page. I am planning to do it after I finished the 
+authentication. 
+***** What I am doing next: ******
+to fix the github problem, I tried solution from here 
+https://forum.freecodecamp.org/t/need-your-help-with-github-permission-denied-to-my-own-repo/17421/12
+and it did not work - the error says:
+fatal: 'git@github.com/adamas-oui/meerkat' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+08/15
+****** todo ******
+1. upload code to github 
+2. authentication 
